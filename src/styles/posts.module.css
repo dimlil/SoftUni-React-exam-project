@@ -1,0 +1,25 @@
+.post{
+    max-width: 500px;
+    border: 2px solid #eeeeee;
+    margin: auto;
+    margin-top: 0%;
+    margin-bottom: 45px;
+}
+.postImage{
+    width: 100%;
+    object-fit: contain;
+    border-bottom: 2px solid #eeeeee;
+    border-top: 2px solid #eeeeee;
+}
+.postText{
+    font-weight: normal;
+    padding: 20px;
+}
+.username{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+.avatar{
+    margin-right: 10px;
+}

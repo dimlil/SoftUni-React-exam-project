@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from '../styles/loginAndRegister.module.css'
 import {Link} from 'react-router-dom'
 

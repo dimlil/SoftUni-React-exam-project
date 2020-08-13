@@ -3,4 +3,12 @@
     border-bottom: #eeeeee 1px solid;
     padding: 5px;
     padding-left: 20px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+.link{
+    float: left;
+    color: blue;
+    
 }

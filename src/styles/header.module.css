@@ -11,8 +11,12 @@
 .link{
     float: left;
 }
-.btn {
-    background-color: #fafafa;
+.btnText{
+    color: white;
+}
+.butn {
+    background-color: #FA8A72;
+    border-radius: 25px;
     border: none;
     color: #000;
     padding: 15px 32px;

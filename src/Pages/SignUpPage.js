@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '../styles/loginAndRegister.module.css'
+import {Link} from 'react-router-dom'
 
 
 export const SignUpPage = () => {
@@ -30,7 +31,7 @@ export const SignUpPage = () => {
     <button className={styles.btn} type="submit">Sign Up</button>
 
     <div>
-      <p> Already have account? Then just</p>
+      <p className={styles.text}> Already have account? Then just <Link to="/login">Login</Link></p>
     </div>
   </form>
     )

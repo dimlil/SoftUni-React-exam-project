@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from '../styles/loginAndRegister.module.css'
+import {Link} from 'react-router-dom'
 
 export const Login = () => {
     return (
         <div>
         <form action="#" method="post" className={styles.form}>
             <div>
-            <h1>Login</h1>
+            <h1 className={styles.login}>Login</h1>
             </div>
         
             <div>
@@ -22,7 +23,7 @@ export const Login = () => {
             <button className={styles.btn} type="submit">Sign In</button>
         
             <div>
-            <p> Don't have account? <br /> Then just </p>
+            <p className={styles.text}> Don't have account?  Then just <Link to="/sign-up">Sign Up</Link></p>
 
             </div>
         </form>

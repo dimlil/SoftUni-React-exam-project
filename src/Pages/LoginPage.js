@@ -25,7 +25,13 @@ const Login = (props) => {
             pathname: '/'
           }))
         .catch((err)=>{
-            alert(err.message)
+            window.$isAuth=false
+            props.history.push({
+                pathname: '/login'
+            })
+            setTimeout(() => {
+                alert(err.message)
+            }, 10);
         })
     }
     return (
@@ -40,7 +46,7 @@ const Login = (props) => {
             <label for="inputUsername">Email</label>
             </div>
         
-            <div class="form-label-group">
+            <div>
             <input onChange={updatingPassword} type="password" value={password} id="inputPassword" name="password" placeholder="Password" required="" />
             <label for="inputPassword">Password</label>
             </div>

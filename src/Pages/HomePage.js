@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import Header from '../Components/Header';
 import Posts from '../Components/Posts';
-import {db} from '../firebase'
+import {db, auth} from '../firebase'
 
 
 const HomePage = () => {
@@ -18,7 +18,6 @@ const HomePage = () => {
             })))
         })
     },[])
-
 
     return (
         <div>

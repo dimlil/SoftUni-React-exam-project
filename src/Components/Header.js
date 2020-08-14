@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import Logo from "./Logo"
 import style from "../styles/header.module.css"
 import {Link} from 'react-router-dom'
+import UploadLink from '../Components/UploadLink';
 import { auth } from '../firebase'
 
 const Header =()=>{
@@ -19,7 +20,8 @@ const Header =()=>{
             
             <div className={style.header}>
                 <Logo />
-                {isAuth ? <div>
+                {isAuth ? <div className={style.login}>
+                    <UploadLink />
                     <button onClick={logout} className={style.butn}><p className={style.btnText}>Sign-Out</p></button>
                 </div> : <div>
                 <Link to='/sign-up'>

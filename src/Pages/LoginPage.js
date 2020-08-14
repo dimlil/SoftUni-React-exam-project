@@ -1,8 +1,33 @@
 import React, {useState} from 'react'
 import styles from '../styles/loginAndRegister.module.css'
 import {Link} from 'react-router-dom'
+import { auth } from '../firebase'
 
-export const Login = () => {
+const Login = (props) => {
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+
+    const updatingEmail=(event)=>{
+        setEmail(event.target.value);
+    }
+    const updatingPassword=(event)=>{
+        setPassword(event.target.value);
+    }
+
+    const signIn=(event)=>{
+        event.preventDefault()
+        auth.signInWithEmailAndPassword(email,password)
+        .then(
+            window.$isAuth=true
+        )
+        .then(          
+            props.history.push({
+            pathname: '/'
+          }))
+        .catch((err)=>{
+            alert(err.message)
+        })
+    }
     return (
         <div>
         <form action="#" method="post" className={styles.form}>
@@ -11,16 +36,16 @@ export const Login = () => {
             </div>
         
             <div>
-            <input type="text" id="inputUsername" name="username" placeholder="Username" required="" autofocus="" />
-            <label for="inputUsername">Username</label>
+            <input onChange={updatingEmail} type="email" value={email} id="inputUsername" name="email" placeholder="Email" required=""/>
+            <label for="inputUsername">Email</label>
             </div>
         
             <div class="form-label-group">
-            <input type="password" id="inputPassword" name="password" placeholder="Password" required="" />
+            <input onChange={updatingPassword} type="password" value={password} id="inputPassword" name="password" placeholder="Password" required="" />
             <label for="inputPassword">Password</label>
             </div>
         
-            <button className={styles.btn} type="submit">Sign In</button>
+            <button onClick={signIn} className={styles.btn} type="submit">Sign In</button>
         
             <div>
             <p className={styles.text}> Don't have account?  Then just <Link to="/sign-up">Sign Up</Link></p>

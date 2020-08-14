@@ -6,13 +6,14 @@ import { auth } from '../firebase'
 
 const Header =()=>{
     const [isAuth, setIsAuth] = useState(window.$isAuth);
-    console.log('Success1',window.$isAuth);
+    // console.log('Success1',window.$isAuth);
+    console.log('Window: ',window.$isAuth);
     const logout=()=>{
         window.$isAuth=!window.$isAuth
         setIsAuth(!setIsAuth)
         auth.signOut();
-        console.log('Success',isAuth);
-        console.log('Success2',window.$isAuth);
+        // console.log('Success',isAuth);
+        // console.log('Window: ',window.$isAuth);
     }
         return(
             

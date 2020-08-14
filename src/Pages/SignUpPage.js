@@ -3,12 +3,12 @@ import styles from '../styles/loginAndRegister.module.css'
 import {Link} from 'react-router-dom'
 import { auth } from '../firebase';
 
-
-export const SignUpPage = () => {
+const SignUpPage = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [user, setUser] = useState(null);
+    // console.log("his: ",props.history);
     useEffect(()=>{
         const unsubscribe=auth.onAuthStateChanged((authUser)=>{
             if (authUser) {
@@ -27,10 +27,18 @@ export const SignUpPage = () => {
 
         auth.createUserWithEmailAndPassword(email,password)
         .then((authUser)=>{
-            return authUser.user.updateProfile({
+            authUser.user.updateProfile({
                 displayName:username
             })
         })
+        .then(
+          window.$isAuth=true
+        )
+        .then(
+          props.history.push({
+            pathname: '/'
+          })
+        )
         .catch(err=>{
             alert(err.message)
         });

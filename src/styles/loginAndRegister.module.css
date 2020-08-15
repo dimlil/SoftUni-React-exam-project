@@ -42,7 +42,7 @@ p,h1,label {
     margin-top:40px !important;
     border: solid;
     border-radius: 1rem;
-    border-color: rgb(241, 179, 6);
+    border-color: #FA8A72;
     box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.712);
 
     max-width: 700px;
@@ -70,9 +70,10 @@ p,h1,label {
   }
 
   .btn {
-    background-color: rgba(51, 51, 51, 0.842)  !important;
+    background-color: #FA8A72;
     color: white  !important;
-
+    border-color: #FA8A72 !important;
+    border-radius: 10px;
     width: 15%;
     margin: auto;
     object-fit: contain;

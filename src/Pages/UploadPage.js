@@ -70,7 +70,7 @@ const UploadPage=(props)=>{
             </div>
 
             <div>
-            <progress value={progress} max="100" />
+            <progress  className={styles.progress} value={progress} max="100" />
             </div>
         
             <div>

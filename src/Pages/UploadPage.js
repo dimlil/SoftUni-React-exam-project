@@ -24,6 +24,9 @@ const UploadPage=(props)=>{
     }
     const upload=(event)=>{
         event.preventDefault();
+        if(caption===''){
+            return alert('Please enter caption')
+        }
         const uploadTask=storage.ref(`images/${image.name}`).put(image)
         uploadTask.on(
             "state_changed",

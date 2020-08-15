@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import Header from '../Components/Header';
 import Posts from '../Components/Posts';
-import {db, auth} from '../firebase'
+import {db} from '../firebase'
 
 
 const HomePage = () => {

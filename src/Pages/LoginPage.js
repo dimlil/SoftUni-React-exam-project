@@ -43,12 +43,12 @@ const Login = (props) => {
         
             <div>
             <input onChange={updatingEmail} type="email" value={email} id="inputUsername" name="email" placeholder="Email" required=""/>
-            <label for="inputUsername">Email</label>
+            <label htmlFor="inputUsername">Email</label>
             </div>
         
             <div>
             <input onChange={updatingPassword} type="password" value={password} id="inputPassword" name="password" placeholder="Password" required="" />
-            <label for="inputPassword">Password</label>
+            <label htmlFor="inputPassword">Password</label>
             </div>
         
             <button onClick={signIn} className={styles.btn} type="submit">Sign In</button>

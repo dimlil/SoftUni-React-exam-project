@@ -78,25 +78,24 @@ const SignUpPage = (props) => {
     </div>
 
     <div >
-      <input onChange={updatingUsername} type="text" value={username} name="username" placeholder="Username" required=""
-        autofocus="" />
-      <label for="inputUsername">Username</label>
+      <input onChange={updatingUsername} id="inputUsername" type="text" value={username} name="username" placeholder="Username" required="" />
+      <label htmlFor="inputUsername">Username</label>
     </div>
 
     <div >
-      <input onChange={updatingEmail} type="email" value={email} name="password" placeholder="Email" required="" />
-      <label for="inputPassword">Email</label>
+      <input onChange={updatingEmail} id="inputEmail" type="email" value={email} name="password" placeholder="Email" required="" />
+      <label htmlFor="inputEmail">Email</label>
     </div>
 
     <div >
-      <input onChange={updatingPassword} type="password" value={password} name="password" placeholder="Password(Min 6)" required="" />
-      <label for="inputPassword">Password</label>
+      <input onChange={updatingPassword} id="inputPassword" type="password" value={password} name="password" placeholder="Password(Min 6)" required="" />
+      <label htmlFor="inputPassword">Password</label>
     </div>
 
     <div >
-      <input onChange={updatingRePassword} type="password" value={rePassword} name="rePassword" placeholder="Re-Password"
+      <input onChange={updatingRePassword} id="inputRePassword" type="password" value={rePassword} name="rePassword" placeholder="Re-Password"
         required="" />
-      <label for="inputRePassword">Re-Password</label>
+      <label htmlFor="inputRePassword">Re-Password</label>
     </div>
 
     <button onClick={signUp} className={styles.btn} type="submit">Sign Up</button>

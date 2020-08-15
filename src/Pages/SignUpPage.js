@@ -6,6 +6,7 @@ import { auth } from '../firebase';
 const SignUpPage = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [rePassword, setRePassword] = useState('');
     const [email, setEmail] = useState('');
     const [user, setUser] = useState(null);
     // console.log("his: ",props.history);
@@ -22,9 +23,16 @@ const SignUpPage = (props) => {
             }
         })
     },[user,username])
+
     const signUp=(event)=>{
         event.preventDefault();
 
+        if(password!==rePassword){
+          return alert("Passwords don't match")
+        }
+        if(password.length<6){
+          return alert("Password must be minimum 6 characters")
+        }
         auth.createUserWithEmailAndPassword(email,password)
         .then((authUser)=>{
             authUser.user.updateProfile({
@@ -39,8 +47,14 @@ const SignUpPage = (props) => {
             pathname: '/'
           })
         )
-        .catch(err=>{
-            alert(err.message)
+        .catch((err)=>{
+          if(err){
+            window.$isAuth=false
+            props.history.push({
+            pathname: '/sign-up'
+          })
+            console.log(err.message)
+          }
         });
     }
 
@@ -52,6 +66,9 @@ const SignUpPage = (props) => {
     }
     const updatingPassword=(event)=>{
         setPassword(event.target.value);
+    }
+    const updatingRePassword=(event)=>{
+        setRePassword(event.target.value);
     }
     return (
         <form action="#" method="post" className={styles.form}>
@@ -72,12 +89,12 @@ const SignUpPage = (props) => {
     </div>
 
     <div >
-      <input onChange={updatingPassword} type="password" value={password} name="password" placeholder="Password" required="" />
+      <input onChange={updatingPassword} type="password" value={password} name="password" placeholder="Password(Min 6)" required="" />
       <label for="inputPassword">Password</label>
     </div>
 
     <div >
-      <input type="password" name="rePassword" placeholder="Re-Password"
+      <input onChange={updatingRePassword} type="password" value={rePassword} name="rePassword" placeholder="Re-Password"
         required="" />
       <label for="inputRePassword">Re-Password</label>
     </div>

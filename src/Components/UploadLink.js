@@ -6,7 +6,7 @@ function UploadLink(props) {
     return (
         <Fragment className={styles.foot}>
         <Link to='/upload'>
-            <button className={styles.butn}>+</button>
+            <button className={styles.butn}><p>+</p></button>
         </Link>
         </Fragment>
 

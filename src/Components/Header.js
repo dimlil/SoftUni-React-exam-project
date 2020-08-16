@@ -8,24 +8,11 @@ import { auth } from '../firebase'
 const Header =()=>{
     const [user, setUser] = useState(auth.currentUser);
 
-    if (user != null) {
-        console.log('in: ',user);
-    }
-    else{
-        console.log('out');
-    }
-    // console.log('Success1',window.$isAuth);
-    console.log('Window: ',window.$isAuth);
     const logout=()=>{
         setUser(null)
-        // window.$isAuth=!window.$isAuth
-        // setIsAuth(!setIsAuth)
-        // auth.signOut();
-        // console.log('Success',isAuth);
-        // console.log('Window: ',window.$isAuth);
+        auth.signOut();
     }
         return(
-            
             <div className={style.header}>
                 <Logo />
                 {user != null ? <div className={style.login}>

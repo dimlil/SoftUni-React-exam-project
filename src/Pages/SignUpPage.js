@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import styles from '../styles/loginAndRegister.module.css'
 import {Link} from 'react-router-dom'
 import { auth } from '../firebase';
@@ -27,11 +27,10 @@ const SignUpPage = (props) => {
         .then(
           window.$isAuth=true
         )
-        .then(
-          props.history.push({
-            pathname: '/'
-          })
-        )
+        .then(()=>{
+        props.history.push({
+          pathname: '/'
+        })})
         .catch((err)=>{
           if(err){
             window.$isAuth=false
@@ -56,40 +55,39 @@ const SignUpPage = (props) => {
         setRePassword(event.target.value);
     }
     return (
-    
-      <form action="#" method="post" className={styles.form}>
+    <form action="#" method="post" className={styles.form}>
 
-          <div>
-            <h1>Register</h1>
-          </div>
+    <div>
+      <h1>Register</h1>
+    </div>
 
-          <div >
-            <input onChange={updatingUsername} id="inputUsername" type="text" value={username} name="username" placeholder="Username" required="" />
-            <label htmlFor="inputUsername">Username</label>
-          </div>
+    <div >
+      <input onChange={updatingUsername} id="inputUsername" type="text" value={username} name="username" placeholder="Username" required="" />
+      <label htmlFor="inputUsername">Username</label>
+    </div>
 
-          <div >
-            <input onChange={updatingEmail} id="inputEmail" type="email" value={email} name="password" placeholder="Email" required="" />
-            <label htmlFor="inputEmail">Email</label>
-          </div>
+    <div >
+      <input onChange={updatingEmail} id="inputEmail" type="email" value={email} name="password" placeholder="Email" required="" />
+      <label htmlFor="inputEmail">Email</label>
+    </div>
 
-          <div >
-            <input onChange={updatingPassword} id="inputPassword" type="password" value={password} name="password" placeholder="Password(Min 6)" required="" />
-            <label htmlFor="inputPassword">Password</label>
-          </div>
+    <div >
+      <input onChange={updatingPassword} id="inputPassword" type="password" value={password} name="password" placeholder="Password(Min 6)" required="" />
+      <label htmlFor="inputPassword">Password</label>
+    </div>
 
-          <div >
-            <input onChange={updatingRePassword} id="inputRePassword" type="password" value={rePassword} name="rePassword" placeholder="Re-Password"
-              required="" />
-            <label htmlFor="inputRePassword">Re-Password</label>
-          </div>
+    <div >
+      <input onChange={updatingRePassword} id="inputRePassword" type="password" value={rePassword} name="rePassword" placeholder="Re-Password"
+        required="" />
+      <label htmlFor="inputRePassword">Re-Password</label>
+    </div>
 
-          <button onClick={signUp} className={styles.btn} type="submit">Sign Up</button>
+    <button onClick={signUp} className={styles.btn} type="submit">Sign Up</button>
 
-          <div>
-            <p className={styles.text}> Already have account? Then just <Link to="/login">Login</Link></p>
-          </div>
-      </form>
+    <div>
+      <p className={styles.text}> Already have account? Then just <Link to="/login">Login</Link></p>
+    </div>
+  </form>
     )
 }
 export default SignUpPage

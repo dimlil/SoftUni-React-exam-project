@@ -18,10 +18,11 @@ const Login = (props) => {
     const signIn=(event)=>{
         event.preventDefault()
         auth.signInWithEmailAndPassword(email,password)
-        .then(          
+        .then(()=>{
             props.history.push({
-            pathname: '/'
-          }))
+                pathname: '/'
+            })
+        })
         .catch((err)=>{
             props.history.push({
                 pathname: '/login'
@@ -31,6 +32,7 @@ const Login = (props) => {
             }, 10);
         })
     }
+
     return (
         <div>
         <form action="#" method="post" className={styles.form}>
@@ -59,4 +61,3 @@ const Login = (props) => {
     )
 }
 export default Login
-

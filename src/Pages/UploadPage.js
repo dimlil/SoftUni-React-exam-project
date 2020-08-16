@@ -65,30 +65,35 @@ const UploadPage=(props)=>{
             }
         )
     }
-    return (
-        <div>
-        <form action="#" method="post" className={styles.form}>
+    if (user!==null) {
+        return (
             <div>
-            <h1 className={styles.uploadHeaderText}>Upload Image</h1>
+            <form action="#" method="post" className={styles.form}>
+                <div>
+                <h1 className={styles.uploadHeaderText}>Upload Image</h1>
+                </div>
+    
+                <div>
+                <progress className={styles.progress} value={progress} max="100" />
+                </div>
+            
+                <div>
+                <input onChange={(event)=>{setCaption(event.target.value);}} type="text" id="inputCaption" value={caption} name="caption" placeholder="Enter a caption" required=""/>
+                <label htmlFor="inputCaption">Caption</label>
+                </div>
+            
+                <div>
+                <input onChange={handleChange} type="file" id="inputFile" name="password"  required="" />
+                <label htmlFor="inputFile">File</label>
+                </div>
+            
+                <button onClick={upload} className={styles.btn}>Upload</button>
+            </form>
             </div>
-
-            <div>
-            <progress className={styles.progress} value={progress} max="100" />
-            </div>
-        
-            <div>
-            <input onChange={(event)=>{setCaption(event.target.value);}} type="text" id="inputCaption" value={caption} name="caption" placeholder="Enter a caption" required=""/>
-            <label htmlFor="inputCaption">Caption</label>
-            </div>
-        
-            <div>
-            <input onChange={handleChange} type="file" id="inputFile" name="password"  required="" />
-            <label htmlFor="inputFile">File</label>
-            </div>
-        
-            <button onClick={upload} className={styles.btn}>Upload</button>
-        </form>
-        </div>
+        )
+    }
+    return(
+        <p>error</p>
     )
 }
 

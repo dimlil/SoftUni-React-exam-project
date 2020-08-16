@@ -73,17 +73,17 @@ const UploadPage=(props)=>{
             </div>
 
             <div>
-            <progress  className={styles.progress} value={progress} max="100" />
+            <progress className={styles.progress} value={progress} max="100" />
             </div>
         
             <div>
             <input onChange={(event)=>{setCaption(event.target.value);}} type="text" id="inputCaption" value={caption} name="caption" placeholder="Enter a caption" required=""/>
-            <label for="inputCaption">Caption</label>
+            <label htmlFor="inputCaption">Caption</label>
             </div>
         
             <div>
             <input onChange={handleChange} type="file" id="inputFile" name="password"  required="" />
-            <label for="inputFile">File</label>
+            <label htmlFor="inputFile">File</label>
             </div>
         
             <button onClick={upload} className={styles.btn}>Upload</button>

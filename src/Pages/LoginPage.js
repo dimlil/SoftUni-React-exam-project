@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styles from '../styles/loginAndRegister.module.css'
 import {Link} from 'react-router-dom'
 import { auth } from '../firebase'
@@ -14,18 +14,15 @@ const Login = (props) => {
         setPassword(event.target.value);
     }
 
+
     const signIn=(event)=>{
         event.preventDefault()
         auth.signInWithEmailAndPassword(email,password)
-        .then(
-            window.$isAuth=true
-        )
         .then(          
             props.history.push({
             pathname: '/'
           }))
         .catch((err)=>{
-            window.$isAuth=false
             props.history.push({
                 pathname: '/login'
             })

@@ -4,7 +4,6 @@ import './index.css';
 import Navigation from './navigation';
 import * as serviceWorker from './serviceWorker';
 
-window.$isAuth=false;
 
 ReactDOM.render(
   <React.StrictMode>

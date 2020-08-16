@@ -6,13 +6,21 @@ import UploadLink from '../Components/UploadLink';
 import { auth } from '../firebase'
 
 const Header =()=>{
-    const [isAuth, setIsAuth] = useState(window.$isAuth);
+    const [user, setUser] = useState(auth.currentUser);
+
+    if (user != null) {
+        console.log('in: ',user);
+    }
+    else{
+        console.log('out');
+    }
     // console.log('Success1',window.$isAuth);
     console.log('Window: ',window.$isAuth);
     const logout=()=>{
-        window.$isAuth=!window.$isAuth
-        setIsAuth(!setIsAuth)
-        auth.signOut();
+        setUser(null)
+        // window.$isAuth=!window.$isAuth
+        // setIsAuth(!setIsAuth)
+        // auth.signOut();
         // console.log('Success',isAuth);
         // console.log('Window: ',window.$isAuth);
     }
@@ -20,7 +28,7 @@ const Header =()=>{
             
             <div className={style.header}>
                 <Logo />
-                {isAuth ? <div className={style.login}>
+                {user != null ? <div className={style.login}>
                     <UploadLink />
                     <button onClick={logout} className={style.butn}><p className={style.btnText}>Sign-Out</p></button>
                 </div> : <div>

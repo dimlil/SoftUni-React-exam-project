@@ -8,21 +8,6 @@ const SignUpPage = (props) => {
     const [password, setPassword] = useState('');
     const [rePassword, setRePassword] = useState('');
     const [email, setEmail] = useState('');
-    const [user, setUser] = useState(null);
-    // console.log("his: ",props.history);
-    useEffect(()=>{
-        const unsubscribe=auth.onAuthStateChanged((authUser)=>{
-            if (authUser) {
-                console.log(authUser);
-                setUser(authUser)
-            } else {
-                setUser(null)
-            }
-            return ()=>{
-                unsubscribe()
-            }
-        })
-    },[user,username])
 
     const signUp=(event)=>{
         event.preventDefault();

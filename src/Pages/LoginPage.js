@@ -27,9 +27,7 @@ const Login = (props) => {
             props.history.push({
                 pathname: '/login'
             })
-            setTimeout(() => {
-                alert(err.message)
-            }, 10);
+            alert(err.message)
         })
     }
 

@@ -24,21 +24,15 @@ const SignUpPage = (props) => {
                 displayName:username
             })
         })
-        .then(
-          window.$isAuth=true
-        )
         .then(()=>{
         props.history.push({
           pathname: '/'
         })})
         .catch((err)=>{
-          if(err){
-            window.$isAuth=false
-            props.history.push({
+          props.history.push({
             pathname: '/sign-up'
-          })
-            console.log(err.message)
-          }
+        })
+        alert(err.message)
         });
     }
 

@@ -5,6 +5,7 @@ import firebase from 'firebase'
 
 const UploadPage=(props)=>{
     const [caption,setCaption]= useState('');
+    const [tags,setTags]= useState('');
     const [image,setImage]= useState(null);
     const [progress,setProgress]= useState('');
     let displayName=""
@@ -52,6 +53,7 @@ const UploadPage=(props)=>{
                     db.collection('posts').add({
                         timestamp: firebase.firestore.FieldValue.serverTimestamp(),//upload img in top of db and home page
                         caption: caption,
+                        tags:tags,
                         imageUrl: url,
                         username: displayName
                     })
@@ -80,6 +82,11 @@ const UploadPage=(props)=>{
                 <div>
                 <input onChange={(event)=>{setCaption(event.target.value);}} type="text" id="inputCaption" value={caption} name="caption" placeholder="Enter a caption" required=""/>
                 <label htmlFor="inputCaption">Caption</label>
+                </div>
+
+                <div>
+                <input onChange={(event)=>{setTags(event.target.value);}} type="text" id="inputCaption" value={tags} name="caption" placeholder="Enter a tags" required=""/>
+                <label htmlFor="inputCaption">Tags</label>
                 </div>
             
                 <div>

@@ -1,14 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import styles from '../styles/Search.module.css'
 import {auth} from '../firebase'
 import Header from '../Components/Header'
+import Posts from '../Components/Posts';
+import {db} from '../firebase'
 
-const SearchPage=(props)=>{
+const SearchPage=()=>{
     const [tags,setTags]= useState('');
+    const [posts, setPosts] = useState([]);
+
+    useEffect(()=>{
+        db.collection('posts').where('tags','==',tags).onSnapshot(snapshot=>{
+            setPosts(snapshot.docs.map(doc=>({
+                id: doc.id,
+                post: doc.data()
+            })))
+        })
+    },[tags])
     
     const user=auth.currentUser;
     const handleChange=(e)=>{
-
+        setTags(e.target.value)
+        console.log(tags);
     }
     if (user!==null) {
         return (
@@ -23,6 +36,12 @@ const SearchPage=(props)=>{
                 <input onChange={handleChange} type="text" id="inputCaption" value={tags} name="caption" placeholder="Enter a tags" required=""/>
                 <label htmlFor="inputCaption">Tags</label>
                 </div>
+
+                {
+                    posts.map(({id,post})=>{
+                    return (<Posts key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />);
+                    })
+                }
 
             </form>
             </div>

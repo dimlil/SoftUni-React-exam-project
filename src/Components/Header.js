@@ -17,6 +17,7 @@ const Header =()=>{
                 <Logo />
                 {user != null ? <div className={style.login}>
                     <UploadLink />
+                    <Link to='/search'><button className={style.butn}><p className={style.btnText}>Search</p></button></Link> 
                     <button onClick={logout} className={style.butn}><p className={style.btnText}>Sign-Out</p></button>
                 </div> : <div>
                 <Link to='/sign-up'>

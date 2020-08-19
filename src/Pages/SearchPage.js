@@ -10,7 +10,7 @@ const SearchPage=()=>{
     const [posts, setPosts] = useState([]);
 
     useEffect(()=>{
-        db.collection('posts').where('tags','==',tags).onSnapshot(snapshot=>{
+        db.collection('posts').where('tags','==',tags).orderBy('timestamp','desc').onSnapshot(snapshot=>{
             setPosts(snapshot.docs.map(doc=>({
                 id: doc.id,
                 post: doc.data()

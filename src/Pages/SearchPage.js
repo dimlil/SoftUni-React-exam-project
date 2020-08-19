@@ -19,21 +19,22 @@ const SearchPage=()=>{
     },[tags])
     
     const user=auth.currentUser;
+
     const handleChange=(e)=>{
         setTags(e.target.value)
-        console.log(tags);
     }
+
     if (user!==null) {
         return (
             <div>
             <Header />
-            <form action="#" method="post">
+            <form method="post">
                 <div>
                 <h1 className={styles.searchHeaderText}>Search</h1>
                 </div>
             
                 <div>
-                <input onChange={handleChange} type="text" id="inputCaption" value={tags} name="caption" placeholder="Enter a tags" required=""/>
+                <input onChange={handleChange} type="text" id="inputTags" value={tags} name="tags" placeholder="Enter a tags" required=""/>
                 <label htmlFor="inputCaption">Tags</label>
                 </div>
 

@@ -14,7 +14,7 @@ const Header =()=>{
     }
         return(
             <div className={style.header}>
-                <Logo />
+                <Link to='/'><Logo /></Link>
                 {user != null ? <div className={style.login}>
                     <UploadLink />
                     <Link to='/search'><button className={style.butn}><p className={style.btnText}>Search</p></button></Link> 

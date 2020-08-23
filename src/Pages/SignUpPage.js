@@ -8,6 +8,7 @@ const SignUpPage = (props) => {
     const [password, setPassword] = useState('');
     const [rePassword, setRePassword] = useState('');
     const [email, setEmail] = useState('');
+    const user=auth.currentUser;
 
     const signUp=(event)=>{
         event.preventDefault();
@@ -48,7 +49,8 @@ const SignUpPage = (props) => {
     const updatingRePassword=(event)=>{
         setRePassword(event.target.value);
     }
-    return (
+    if(user===null){
+      return (
     <form action="#" method="post" className={styles.form}>
 
     <div>
@@ -82,7 +84,15 @@ const SignUpPage = (props) => {
       <p className={styles.text}> Already have account? Then just <Link to="/login">Login</Link></p>
     </div>
   </form>
-    )
+    )}
+    if (user!==null) {
+      return(
+      <p>Error you are already loged in</p>
+      )    
+  }
+  return(
+      <p>Error</p>
+  )
 }
 export default SignUpPage
 

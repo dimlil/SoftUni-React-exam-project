@@ -6,7 +6,7 @@ function UploadLink(props) {
     return (
         <div className={styles.foot}>
         <Link to='/upload'>
-            <button className={styles.butn}><p>+</p></button>
+            <button className={styles.butn}><p className={styles.plus}>+</p></button>
         </Link>
         </div>
 

@@ -1,11 +1,12 @@
 .butn{
-    border: 1px solid #000;
+    border: 1px solid #FA8A72;
     border-radius: 5px;
     color: #000;
     text-align: center;
     text-decoration: none;
     height: 25px;
     width: 25px;
+    background-color: #FA8A72;
     /* padding: 10px ; */
 }
 .foot{
@@ -60,4 +61,7 @@ input{
     margin: auto;
     object-fit: contain;
     display: block;
+}
+.plus{
+    color: #fff;
 }

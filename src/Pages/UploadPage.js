@@ -99,8 +99,13 @@ const UploadPage=(props)=>{
             </div>
         )
     }
+    if (user===null) {
+        return(
+        <p>Error you need to be loged</p>
+        )    
+    }
     return(
-        <p>error</p>
+        <p>Error</p>
     )
 }
 

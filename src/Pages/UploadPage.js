@@ -8,9 +8,11 @@ const UploadPage=(props)=>{
     const [tags,setTags]= useState('');
     const [image,setImage]= useState(null);
     const [progress,setProgress]= useState('');
-    let displayName=""
-    
     const user=auth.currentUser;
+    let displayName=""
+    const email = user.email;
+    
+
     if (user != null) {
         user.providerData.forEach((profile)=>{
             displayName=profile.displayName
@@ -55,7 +57,8 @@ const UploadPage=(props)=>{
                         caption: caption,
                         tags:tags,
                         imageUrl: url,
-                        username: displayName
+                        username: displayName,
+                        email:email
                     })
                     setProgress(0);
                     setCaption('');

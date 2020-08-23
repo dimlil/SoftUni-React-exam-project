@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import Header from '../Components/Header';
 import { auth } from '../firebase';
-import styles from '../styles/profile.module.css'
 import Posts from '../Components/Posts';
 import {db} from '../firebase'
 
